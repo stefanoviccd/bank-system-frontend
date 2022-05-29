@@ -1,0 +1,18 @@
+.page-not-found-div img{
+    height: 23rem;
+    width: 30rem;
+}
+.page-not-found-div{
+    height: 40rem;
+    position: relative;
+    width: 60%;
+    left:20%;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5rem !important;
+}
+.page-not-found-div p{
+    font-size: 25px;
+    color: red;
+    margin-top: 1rem
+}

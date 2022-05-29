@@ -1,38 +1,333 @@
-.App {
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main-div{
+  background-image: url("https://hbr.org/resources/images/article_assets/2014/02/Feb14_02_108315569.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70rem;
+  position: absolute;
+  top:0;
+  width: 100%;
+}
+.navbar{
+  padding-left: 1rem;
+  height: 70%;
+}
+.nav-right{
+position: absolute;
+right: 1rem;
+}
+.frm-add-div{
+  margin-bottom: 5rem !important;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height:40px !important;
+  background-color: transparent;
+  text-align: right;
+  color: black;
+  padding-right: 1rem;
+  margin-top:2rem
+
+
+}
+
+.container {
+  margin-top: 5rem !important;  
+  display: block;
   text-align: center;
+
+
+
+}
+.btn{
+margin-left: 2rem;
+margin-bottom: 0.5rem;
+  background-color: #d8e6f7 !important;
+  border: 1px solid #d8e6f7  !important;
+}
+.tbl-div{
+  padding: 2rem;
+}
+.link{
+  text-decoration: none;
+  color:black;
+}
+.link:hover{
+  color: white !important;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+thead tr{
+  background-color: rgb(162, 161, 161);
   color: white;
+
 }
 
-.App-link {
-  color: #61dafb;
+
+.btn-color{
+  background-color: #0e1c36;
+  color: #fff;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.profile-image-pic{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+
+
+.cardbody-color{
+  background-color: #ebf2fa;
+}
+
+a{
+  text-decoration: none;
+}
+
+.legalEntityData{
+  display: grid !important;
+  grid-template-columns: 45% 55%;
+}
+.basicData{
+  padding: 5px;
+}
+.addressData{
+  padding: 5px;
+}
+.townShipInfo{
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+#townShip{
+  margin-right: 5px !important;
+  width: 90%;
+}
+#streetName{
+  width: 90%;
+}
+.addEnttiyBtn{
+  width: 100px;
+  height: 40px;
+  background-color: #669999;
+  border: 1px solid #669999;
+  color: white;
+  letter-spacing: 2px;
+  margin-right: 1rem;
+}
+.cancelAddingEntity{
+  width: 100px;
+  height: 40px;
+  background-color:#990000;
+  border: 1px solid #990000;
+  color: white !important;
+  letter-spacing: 2px;
+  display: inline-block;
+  text-align: center;
+
+
+}
+.white{
+  color: white !important;
+}
+.img-fluid{
+  border: 2px solid #990000 !important;
+}
+.btn-change{
+  float: right;
+  margin-left: 1rem;
+  border-radius: 5px;
+  height: 35px;
+  border: 0px;
+}
+.btn-info{
+  background-color: #d8e6f7  !important ;
+}
+.btn-search{
+  margin-right: 1rem;
+  width: 50px;
+}
+.input-search{
+right: 6rem;
+margin-top: 0.5rem;
+
+
+}
+
+
+.report-form{
+  background-color: #e7eef6  !important ;
+  padding: 10px;
+  padding-bottom: 5rem;
+
+}
+.col-sm-10{
+  width: 15rem !important;
+}
+.form-group{
+  text-align: left;
+}
+.basic-report-data div{
+  margin-left: 0.2rem;
+}
+
+
+
+.grid-loan-data{
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+}
+.grid-loan-data div{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.add-loan-btn{
+  float: left;
+  background-color: #c6dffa  !important ;
+  border: 2px solid #c6dffa ;
+  border-radius: 5px;
+  color: black;
+  margin-left: 1rem;
+  width: 10rem;
+  margin-top:1rem;
+  margin-bottom: 2rem;
+
+
+}
+.btn-remove-loan{
+  margin-right: 1rem;
+  display: inline !important;
+  margin-bottom: 5px;
+
+
+}
+.btn-save-report{
+  float: left;
+  background-color: rgb(125, 240, 125) !important;
+  margin-top: 1rem;
+}
+.row-input{
+  width: 80%;
+  padding: 0;
+}
+.btn-update-loan{
+  background-color: #c6dffa  ;
+  border: 1px solid  #c6dffa ;
+  border-radius: 3px;
+  margin-right: 6px;
+
+}
+
+.btn-cancel{
+  background-color:rgb(123, 6, 6)  ;
+  border: 1px solid rgb(123, 6, 6)    ;
+  border-radius: 3px;
+  margin-right: 3px;
+
+}
+.update-loan-btn{
+margin-left: 9rem;
+  width: 8rem !important;
+  height: 2rem !important;
+  background-color: #c6dffa ;
+  border: 2px solid #c6dffa;
+}
+.radio-buttons{
+  margin-left: 2rem;
+}
+.radio-buttons label{
+  margin-right: 2rem;
+}
+
+.radio-buttons input{
+  margin-right: 0.5rem;
+}
+
+.error-messages{
+  background-color: rgb(247, 107, 107);
+  color:  white !important;
+  width: inherit;
+  margin-bottom: 0.5rem;
+
+}
+.error-messages p{
+  padding-top: 1rem;
+  font-size: 20px !important;
+}
+.add-report-radios{
+  margin-top: 6rem !important;
+  font-size: 20px;
+}
+.btn-cancel{
+  background-color: #990000 !important;
+  color: white !important;
+}
+.legalEntititesSelect{
+  margin-left: 0.1rem;
+  width: 7rem;
+}
+
+.sessionExpiredDiv{
+  position: absolute;
+  left:30%;
+  top: 25%;
+  background-color: white;
+  height: 10rem;
+  width: 40%;
+  text-align: center;
+  padding-top:1rem;
+  border: 1px solid black;
+  
   }
-  to {
-    transform: rotate(360deg);
+  .session-buttons{
+  margin-top:2rem;
+
   }
+  .session-btn{
+    width: 70px;
+    height: 40px;
+    background-color: #c6dffa;
+    color: black;
+    margin-left: 1rem;
+    border: 1px solid black;
+  }
+  .whole-page-layer{
+    position: absolute;
+    left:0;
+    top:0;
+    height: 100%;
+    width: 100%;
+  
+  }
+  @media screen and (max-width: 500px){
+    .sessionExpiredDiv{
+  
+      width: 94%;
+      left:3%;
+      right:3%
+    }
+  
+    }
+    .optionButtons{
+      margin-bottom: 5rem !important;
+    }
+    .pgn-div
+{
+    position: absolute;
+    top:8rem;
+    left:12rem
+}
+.pgn-div button{
+    margin-left: 2px;
+    margin-right: 0;
+    padding: 0;
+    width: 30px;
+    border: none;
 }
