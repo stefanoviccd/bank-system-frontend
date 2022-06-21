@@ -20,7 +20,7 @@ function App() {
 const [reports, setReports] = useState([]);
 const [legalEntities, setLegalEntities] = useState([]);
 const [isLoggedIn, setIsLoggedIn] = useState(false);
-const [openModal, setOpenModal]=useState(true);
+const [openModal, setOpenModal]=useState(false);
 const[sessionExpire, setSessionExpired]=useState(false);
 
 
@@ -60,7 +60,7 @@ const getAllReports = () => {
 }
 const getReportsByValue = (value) => {
   CreditBureauReporsService.getReportsByValue(value).then((response) => {
-      setReports(response.data);
+      setReports(response.data.responseData);
 
   }).catch(error => {
     console.log(error)

@@ -12,9 +12,11 @@ const ListReportsComponent = ({reports, getAllReports, getReportsByValue}) => {
     const[checked, setChecked]=useState("ALL");
     const [currentPage, setCurrentPage]=useState(1);
     const [reportsPerPage, setReportsPerPage]=useState(10);
+
     
   useEffect(() => {
         getAllReports();
+ 
 
     }, [])
     const handleDeleteReport = (e, report) => {
@@ -29,11 +31,11 @@ const ListReportsComponent = ({reports, getAllReports, getReportsByValue}) => {
                      getAllReports()
                 }
                 else{
-                    console.log(errorMessage);
+                console.log(response.data.responseException.message)
                 }
                
             }).catch(error => {
-                console.log("Greska u metodi deleteReport: " + error);
+               console.log(error)
             })
 
         }
@@ -106,10 +108,10 @@ const ListReportsComponent = ({reports, getAllReports, getReportsByValue}) => {
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">Rb.</th>
+                        <th className='unvisible' scope="col">Rb.</th>
                         <th scope="col">Šifra izveštaja</th>
-                        <th scope="col">Naziv banke</th>
-                        <th scope="col">Datum izdavanja</th>
+                        <th className='unvisible'  scope="col">Naziv banke</th>
+                        <th className='unvisible'  scope="col">Datum izdavanja</th>
                         <th scope="col">Pravno lice</th>
                         <th scope="col">Status</th>
                         <th scope="col">Operacije</th>
@@ -128,11 +130,11 @@ const ListReportsComponent = ({reports, getAllReports, getReportsByValue}) => {
 
                           checked==report.reportStatus | checked=="ALL" ? <tr key={report.id}>
 
-                                    <td>{reports.indexOf(report) + 1}</td>
+                                    <td className='unvisible' >{reports.indexOf(report) + 1}</td>
 
                                     <td>{report.reportNum}</td>
-                                    <td>{report.bankName}</td>
-                                    <td>{dateFormat(report.date, "yyyy-mm-dd")}</td>
+                                    <td className='unvisible' >{report.bankName}</td>
+                                    <td className='unvisible' >{dateFormat(report.date, "yyyy-mm-dd")}</td>
                                     <td>{report.legalEntity==null ? "null" : report.legalEntity.name}</td>
                                     <td>{report.reportStatus}</td>
                                     <td>

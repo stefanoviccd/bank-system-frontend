@@ -62,9 +62,9 @@ const ListLegalEntityComponent = ({legalEntities, getAllEntities, getLegalEntiti
             {errorMessage && <p className="error"> {errorMessage} </p>}
         </div>
         <button type="button" class="btn btn-success"><Link className='link' to={"/pravnaLica/novo"}> Dodaj pravno lice</Link></button>
-        <input type="text" className='nav-right input-search' onChange={(e)=>getLegalEntitiesByValue(e.target.value)}></input>
-        <button type="button" class="btn btn-success nav-right btn-search" onClick={()=>getAllEntities()}><GrPowerReset></GrPowerReset></button>
-        <div className="pgn-div">
+        <input type="text" className='nav-right input-search le-search' onChange={(e)=>getLegalEntitiesByValue(e.target.value)}></input>
+        <button type="button" class="btn btn-success nav-right btn-search le-search" onClick={()=>getAllEntities()}><GrPowerReset></GrPowerReset></button>
+        <div className="pgn-div le">
             <button onClick={(e)=>goPrevious(e)}>
             <GrPrevious></GrPrevious>
           </button>
@@ -77,10 +77,10 @@ const ListLegalEntityComponent = ({legalEntities, getAllEntities, getLegalEntiti
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">Rb.</th>
+                        <th className='unvisible' scope="col">Rb.</th>
                         <th scope="col">Matični broj</th>
                         <th scope="col">Puno ime</th>
-                        <th scope="col">Broj računa</th>
+                        <th className='unvisible'scope="col">Broj računa</th>
                         <th scope="col">Sedište</th>
                         <th scope="col">Operacije</th>
                     </tr>
@@ -94,11 +94,11 @@ const ListLegalEntityComponent = ({legalEntities, getAllEntities, getLegalEntiti
                         
                                  <tr key={entity.id}>
                      
-                                <td>{legalEntities.indexOf(entity)+1}</td>
+                                <td className='unvisible'>{legalEntities.indexOf(entity)+1}</td>
                           
                                 <td>{entity.identificationNumber}</td>
                                 <td>{entity.name}</td>
-                                <td>{entity.accountNumber}</td>
+                                <td className='unvisible'>{entity.accountNumber}</td>
                                 <td>{entity.street.streetName+" "+entity.street.streetNumber+ ", "+entity.street.township.place.name+" "+entity.street.township.zipCode+" "
                                 +entity.street.township.name
         

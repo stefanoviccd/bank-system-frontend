@@ -19,7 +19,7 @@ function AddEntityComponent({ getAllEntities }) {
     const { id } = useParams();
     const nav = useNavigate();
     const [errors, setErrors] = useState(false)
-    const [errorMessages, setErrorMessages] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
 
 
 
@@ -28,13 +28,13 @@ function AddEntityComponent({ getAllEntities }) {
     }
     function showMessage() {
         setErrors(true)
-        setTimeout(function () { setErrorMessages(""); setErrors(false); }, 3000);
+        setTimeout(function () { setErrorMessage(""); setErrors(false); }, 3000);
 
     }
     const saveOrUpdateLegalEntity = (e) => {
         e.preventDefault();
         if (name.trim() === "" | identificationNumber.trim() === "" | accountNumber.trim() === "" | placeName.trim() === "" | placeTownship.trim() === "" | placeStreet.trim() === "" | streetNumber === 0 | tsZipCode.toString().trim() === "") {
-            setErrorMessages("Morate uneti sve podatke.")
+            setErrorMessage("Morate uneti sve podatke.")
             showMessage()
             return;
         }
@@ -46,7 +46,7 @@ function AddEntityComponent({ getAllEntities }) {
         })
 
         if (i > 0) {
-            setErrorMessages("Naziv pravnog lica nije ispravan.");
+            setErrorMessage("Naziv pravnog lica nije ispravan.");
             showMessage()
             i = 0;
             return;
@@ -58,7 +58,7 @@ function AddEntityComponent({ getAllEntities }) {
             }
         })
         if (i > 0) {
-            setErrorMessages("Matični broj lica nije ispravan.");
+            setErrorMessage("Matični broj lica nije ispravan.");
             showMessage()
             i = 0;
             return;
@@ -73,7 +73,7 @@ function AddEntityComponent({ getAllEntities }) {
         })
 
         if (i > 0) {
-            setErrorMessages("Račun pravnog lica nije ispravan.");
+            setErrorMessage("Račun pravnog lica nije ispravan.");
             showMessage()
             i = 0;
             return;
@@ -85,7 +85,7 @@ function AddEntityComponent({ getAllEntities }) {
             }
         })
         if (i > 0) {
-            setErrorMessages("Naziv mesta pravnog lica nije ispravan.");
+            setErrorMessage("Naziv mesta pravnog lica nije ispravan.");
             showMessage()
             i = 0;
             return;
@@ -97,7 +97,7 @@ function AddEntityComponent({ getAllEntities }) {
             }
         })
         if (i > 0) {
-            setErrorMessages("Naziv opštine pravnog lica nije ispravan.");
+            setErrorMessage("Naziv opštine pravnog lica nije ispravan.");
             showMessage()
             i = 0;
             return;
@@ -109,14 +109,14 @@ function AddEntityComponent({ getAllEntities }) {
                 }
             })
             if (i > 0) {
-                setErrorMessages("Naziv ulice pravnog lica nije ispravan.");
+                setErrorMessage("Naziv ulice pravnog lica nije ispravan.");
                 showMessage()
                 i = 0;
                 return;
     
             }
         if(streetNumber.toString().split("").at(0)==="0"){
-            setErrorMessages("Broj iz adrese pravnog lica nije ispravan.");
+            setErrorMessage("Broj iz adrese pravnog lica nije ispravan.");
             showMessage()
             return;
         }
@@ -127,7 +127,7 @@ function AddEntityComponent({ getAllEntities }) {
             })
             if (i > 0) {
     
-                setErrorMessages("Broj iz adrese pravnog lica nije ispravan.");
+                setErrorMessage("Broj iz adrese pravnog lica nije ispravan.");
                 showMessage()
                 i = 0;
                 return;
@@ -150,13 +150,15 @@ function AddEntityComponent({ getAllEntities }) {
                 nav("/pravnaLica");
                 }
                 else{
-                    setErrorMessages("Nije moguće sačuvati pravno lice. Proverite validnost unetih podataka kao i da li entitet već postoji u bazi.");
+                    setErrorMessage("Nije moguće sačuvati pravno lice. Proverite validnost unetih podataka kao i da li entitet već postoji u bazi.");
                         showMessage()
                 }
                
 
             }).catch(error => {
-            console.log(error)
+                setErrorMessage(error.response.data.responseException.message)
+                showMessage()
+                console.log(error)
             })
 
         }
@@ -175,11 +177,13 @@ function AddEntityComponent({ getAllEntities }) {
                 nav("/pravnaLica");
                 }
                 else{
-                    console.log(response.data.responseException)
+                    setErrorMessage(response.data.responseException.message)
+                    showMessage()
                 }
 
             }).catch(error => {
-                console.log(error);
+               setErrorMessage(error.response.data.responseException.message)
+                showMessage();
 
             })
 
@@ -231,7 +235,7 @@ function AddEntityComponent({ getAllEntities }) {
                         <div className="card my-5 text-center">
                             <div className='error-messages'>
                                 {errors && <p>{
-                                    errorMessages}</p>}
+                                    errorMessage}</p>}
 
                             </div>
 

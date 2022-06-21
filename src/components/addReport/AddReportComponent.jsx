@@ -80,8 +80,6 @@ function AddReportComponent({ getAllReports, legalEntities, getAllEntities}) {
    legalEntities.forEach(e =>{
       if(e.id==entity){
         setLegalEntity(e);
-      console.log("*******************  legal entity *********************")
-        console.log(legalEntity);
         return;
       }
     })
@@ -688,7 +686,7 @@ function AddReportComponent({ getAllReports, legalEntities, getAllEntities}) {
                 ))}
               </tbody>
             </table>
-            {id ? (
+            {id && editable ? (
               <div className="radio-buttons add-report-radios">
                 <input
                   type="radio"
